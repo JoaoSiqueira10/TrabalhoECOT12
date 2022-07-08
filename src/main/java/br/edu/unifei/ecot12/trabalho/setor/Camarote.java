@@ -1,6 +1,8 @@
 package br.edu.unifei.ecot12.trabalho.setor;
 
-public class Camarote {
+import br.edu.unifei.ecot12.trabalho.futebol.Setor;
+
+public class Camarote extends Setor{
 
 	private boolean openBar;
 	private boolean openFood;
