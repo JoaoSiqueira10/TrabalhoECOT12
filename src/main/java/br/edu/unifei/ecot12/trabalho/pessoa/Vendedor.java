@@ -6,7 +6,7 @@ public class Vendedor extends Funcionario {
 	private int quantidadeVenda;
 	
 	public void recebePagamento() {
-		System.out.println("Pega o pagamento");
+		System.out.println("Pegou o pagamento");
 		entregaProduto();
 	}
 	

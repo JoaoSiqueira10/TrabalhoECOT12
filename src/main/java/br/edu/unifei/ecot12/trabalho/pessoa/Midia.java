@@ -5,7 +5,7 @@ import br.edu.unifei.ecot12.trabalho.futebol.Pessoa;
 public abstract class Midia extends Pessoa {
 
 	private String nomeEmpresa;
-	private String fala;
+	private String fama;
 
 	public String getNomeEmpresa() {
 		return nomeEmpresa;
@@ -15,12 +15,12 @@ public abstract class Midia extends Pessoa {
 		this.nomeEmpresa = nomeEmpresa;
 	}
 
-	public String getFala() {
-		return fala;
+	public String getFama() {
+		return fama;
 	}
 
-	public void setFala(String fala) {
-		this.fala = fala;
+	public void setFama(String fama) {
+		this.fama = fama;
 	}
 
 	public Midia() {

@@ -52,4 +52,8 @@ public class Medico extends Funcionario {
 		this.mascara = mascara;
 	}
 
+	
+		
+
+
 }

@@ -1,5 +1,7 @@
 package br.edu.unifei.ecot12.trabalho.pessoa;
 
+import java.util.Random;
+
 import br.edu.unifei.ecot12.trabalho.futebol.Pessoa;
 
 public abstract class ComissaoTecnica extends Pessoa {
@@ -24,7 +26,17 @@ public abstract class ComissaoTecnica extends Pessoa {
 	}
 
 	public void orientaJogador() {
-		System.out.println("Faz alguma coisa, reage!!!!");
+		String[] orientacao = new String[5];
+		orientacao[0] = "Faz alguma coisa, reage!!!!";
+		orientacao[1] = "Marca direito!!!";
+		orientacao[2] = "Chuta pro gol!!!!";
+		orientacao[3] = "Passa a bola!!!";
+		orientacao[4] = "Cruza pra area!!!";
+
+		Random rand = new Random();
+		int num = rand.nextInt(5);
+		
+		System.out.println(orientacao[num]);
 	}
 
 	public ComissaoTecnica() {

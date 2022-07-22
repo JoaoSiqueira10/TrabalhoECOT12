@@ -4,13 +4,13 @@ import java.util.Random;
 
 public class Reserva extends Jogador {
 
-	public void fazAquecimento() {
-		System.out.println("Fazendo aquecimento");
+	public void fazAquecimento(String nome) {
+		System.out.println("Jogador" + nome + "esta fazendo aquecimento");
 	}
 
-	public void entraEmCampo() {
+	public void entraEmCampo(String nome) {
 		Random rand = new Random();
 		int num = rand.nextInt(100);
-		System.out.println("Entra em campo no lugar do camisa " + num);
+		System.out.println("Jogador " + nome + "entra em campo no lugar do camisa " + num);
 	}
 }

@@ -13,7 +13,8 @@ public class Organizada extends Torcedor {
 	}
 	
 	public void acendeSinalizador() {
-		System.out.println("Sinalizador" + cor + "aceso");
+		//System.out.println("Sinalizador " + cor + " aceso");
+		System.out.println("Sinalizador Vermelho aceso");
 	}
 	
 	public void tocaInstrumento() {
@@ -42,5 +43,13 @@ public class Organizada extends Torcedor {
 
 	public void setNumFaixa(int numFaixa) {
 		this.numFaixa = numFaixa;
+	}
+
+	public Cor getCor() {
+		return cor;
+	}
+
+	public void setCor(Cor cor) {
+		this.cor = cor;
 	}
 }

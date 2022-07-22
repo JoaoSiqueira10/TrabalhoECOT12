@@ -2,12 +2,12 @@ package br.edu.unifei.ecot12.trabalho.pessoa;
 
 import java.util.Random;
 
-import br.edu.unifei.ecot12.trabalho.futebol.Cor;
+//import br.edu.unifei.ecot12.trabalho.futebol.Cor;
 
 public class Juiz extends Arbitragem {
 
 	private boolean espuma;
-	private boolean cartao[];
+	private boolean cartao;
 
 	public void chamaVar() {
 		System.out.println("Foi conferir no VAR");
@@ -23,7 +23,18 @@ public class Juiz extends Arbitragem {
 		System.out.println("O resultado do VAR é " + VAR[num]);
 
 	}
-
+	
+	public void usaCartao() {
+		String[] corCartao = new String[2];
+		corCartao[0] = "Vermelho";
+		corCartao[1] = "Amarelo";
+		
+		Random rand = new Random();
+		int num = rand.nextInt(2);
+		
+		System.out.println(corCartao[num]);
+	}
+	/*
 	public void usaCartao(Cor cor) {
 		Cor[] cart = new Cor[2];
 		cart[0] = Cor.AMARELO;
@@ -33,7 +44,7 @@ public class Juiz extends Arbitragem {
 		int num = rand.nextInt(2);
 		System.out.println("Juiz aplicou cartao " + cart[num]);
 	}
-
+	*/
 	public boolean isEspuma() {
 		return espuma;
 	}
@@ -42,11 +53,11 @@ public class Juiz extends Arbitragem {
 		this.espuma = espuma;
 	}
 
-	public boolean[] getCartao() {
+	public boolean isCartao() {
 		return cartao;
 	}
 
-	public void setCartao(boolean[] cartao) {
+	public void setCartao(boolean cartao) {
 		this.cartao = cartao;
 	}
 

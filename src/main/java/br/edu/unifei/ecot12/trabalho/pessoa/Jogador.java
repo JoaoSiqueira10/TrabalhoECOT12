@@ -1,6 +1,9 @@
 package br.edu.unifei.ecot12.trabalho.pessoa;
 
+import java.util.Random;
+
 import br.edu.unifei.ecot12.trabalho.futebol.Pessoa;
+import br.edu.unifei.ecot12.trabalho.futebol.Uniforme;
 
 public abstract class Jogador extends Pessoa {
 
@@ -12,6 +15,7 @@ public abstract class Jogador extends Pessoa {
 	private float resistencia;
 	private int numCartaoVermelho;
 	private int numCartaoAmarelo;
+	private Uniforme uniforme;
 
 	public float getSalario() {
 		return salario;
@@ -76,13 +80,31 @@ public abstract class Jogador extends Pessoa {
 	public void setNumCartaoAmarelo(int numCartaoAmarelo) {
 		this.numCartaoAmarelo = numCartaoAmarelo;
 	}
+	
+	public Uniforme getUniforme() {
+		return uniforme;
+	}
+
+	public void setUniforme(Uniforme uniforme) {
+		this.uniforme = uniforme;
+	}
 
 	public Jogador() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void comeraGol() {
-		System.out.println("Faz alguma comemoracao");
-	}
+	public void comeraGol(String nome) {
+		String[] tipoComemoracao = new String[5];
+		tipoComemoracao[0] = " deu mortal";
+		tipoComemoracao[1] = " faz peixinho";
+		tipoComemoracao[2] = " agradece a Deus";
+		tipoComemoracao[3] = " homenageia a familia";
+		tipoComemoracao[4] = " faz dancinha do rebolation";
 
+		Random rand = new Random();
+		int num = rand.nextInt(5);
+		
+		System.out.print(nome);
+		System.out.println(tipoComemoracao[num]);
+	}
 }

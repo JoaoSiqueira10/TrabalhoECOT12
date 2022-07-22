@@ -55,5 +55,9 @@ public class Time {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
+	
+	public void mudaUniforme() {
+		status.inverter(null);
+	}
 
 }

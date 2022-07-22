@@ -29,19 +29,19 @@ public abstract class Torcedor extends Pessoa {
 	}
 
 	public void cantaHino() {
-		System.out.println("Musica do hino do time");
+		System.out.println("musica do hino do time");
 	}
 
 	public void xingaJuiz() {
-		System.out.println("Juiz ladrão");
+		System.out.println("juiz de ladrão");
 	}
 
 	public void xingaTecnico() {
-		System.out.println("Tecnico Ruim");
+		System.out.println("tecnico de ruim");
 	}
 
 	public void xingaJogador() {
-		System.out.println("Fora");
+		System.out.println("vaia jogador");
 	}
 
 	public void gritaOle() {
