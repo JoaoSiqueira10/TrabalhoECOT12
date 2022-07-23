@@ -8,7 +8,9 @@ public class Seguranca extends Funcionario {
 	private boolean cacetete;
 	private boolean bombaLagrimogenea;
 
-	public boolean getColete() {
+	
+	
+	public boolean isColete() {
 		return colete;
 	}
 
@@ -16,7 +18,7 @@ public class Seguranca extends Funcionario {
 		this.colete = colete;
 	}
 
-	public boolean getSprayPìmanta() {
+	public boolean isSprayPìmanta() {
 		return sprayPìmanta;
 	}
 
@@ -24,7 +26,7 @@ public class Seguranca extends Funcionario {
 		this.sprayPìmanta = sprayPìmanta;
 	}
 
-	public boolean getCacetete() {
+	public boolean isCacetete() {
 		return cacetete;
 	}
 
@@ -32,14 +34,14 @@ public class Seguranca extends Funcionario {
 		this.cacetete = cacetete;
 	}
 
-	public boolean getBombaLagrimogenea() {
+	public boolean isBombaLagrimogenea() {
 		return bombaLagrimogenea;
 	}
 
 	public void setBombaLagrimogenea(boolean bombaLagrimogenea) {
 		this.bombaLagrimogenea = bombaLagrimogenea;
 	}
-	
+
 	public void atiraBombaLagrimogenea(String corAlerta) {
 		if (corAlerta == "Vermelho" && bombaLagrimogenea == true) {
 			System.out.println("Segunca usa bomba lagrimogenea");

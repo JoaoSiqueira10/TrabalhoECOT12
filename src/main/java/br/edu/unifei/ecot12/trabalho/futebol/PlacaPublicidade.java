@@ -1,16 +1,12 @@
 package br.edu.unifei.ecot12.trabalho.futebol;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class PlacaPublicidade {
 
 	private String patrocinador;
 	private Cor cor;
+	private String cores;
 
-	private List<Patrocinador> marcas = new ArrayList<Patrocinador>();
-
-	public void trocaPatrocinio(String patrocinador) {
+	public void trocaPatrocinio() {
 		System.out.println("Mudando Patrocinador");
 	}
 
@@ -34,12 +30,12 @@ public class PlacaPublicidade {
 		this.cor = cor;
 	}
 
-	public List<Patrocinador> getMarcas() {
-		return marcas;
+	public String getCores() {
+		return cores;
 	}
 
-	public void setMarcas(List<Patrocinador> marcas) {
-		this.marcas = marcas;
+	public void setCores(String cores) {
+		this.cores = cores;
 	}
 
 }
