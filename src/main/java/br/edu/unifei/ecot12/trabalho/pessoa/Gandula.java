@@ -2,6 +2,10 @@ package br.edu.unifei.ecot12.trabalho.pessoa;
 
 public class Gandula extends Funcionario {
 	private float resistencia;
+	
+	public String toString() {
+		return nome;
+	}
 
 	public float getResistencia() {
 		return resistencia;

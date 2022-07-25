@@ -4,6 +4,11 @@ public class Medico extends Funcionario {
 	private boolean estetoscopio;
 	private boolean luva;
 	private boolean mascara;
+	
+	@Override
+	public String toString() {
+		return nome;
+	}
 
 	public void equipaLuva() {
 		if (luva == false) {
@@ -51,9 +56,4 @@ public class Medico extends Funcionario {
 	public void setMascara(boolean mascara) {
 		this.mascara = mascara;
 	}
-
-	
-		
-
-
 }

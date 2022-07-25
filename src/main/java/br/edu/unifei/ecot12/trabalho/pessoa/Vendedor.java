@@ -5,6 +5,11 @@ import java.util.Random;
 public class Vendedor extends Funcionario {
 	private int quantidadeVenda;
 	
+	@Override
+	public String toString() {
+		return nome;
+	}
+	
 	public void recebePagamento() {
 		System.out.println("Pegou o pagamento");
 		entregaProduto();

@@ -17,6 +17,11 @@ public abstract class Jogador extends Pessoa {
 	private int numCartaoAmarelo;
 	private Uniforme uniforme;
 
+	@Override
+	public String toString () {
+		return nome;
+	}
+	
 	public float getSalario() {
 		return salario;
 	}

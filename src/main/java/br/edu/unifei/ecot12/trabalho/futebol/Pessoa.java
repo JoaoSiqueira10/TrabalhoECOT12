@@ -2,7 +2,7 @@ package br.edu.unifei.ecot12.trabalho.futebol;
 
 public abstract class Pessoa {
 
-	private String nome;
+	protected String nome;
 	private int idade;
 
 	public String getNome() {

@@ -5,6 +5,11 @@ public class PlacaPublicidade {
 	private String patrocinador;
 	private Cor cor;
 	private String cores;
+	
+	@Override
+	public String toString() {
+		return patrocinador;
+	}
 
 	public void trocaPatrocinio() {
 		System.out.println("Mudando Patrocinador");

@@ -1,6 +1,7 @@
 package br.edu.unifei.ecot12.trabalho.aplicacao;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -19,6 +20,7 @@ import br.edu.unifei.ecot12.trabalho.pessoa.Comentarista;
 import br.edu.unifei.ecot12.trabalho.pessoa.Comum;
 import br.edu.unifei.ecot12.trabalho.pessoa.Fisioterapeuta;
 import br.edu.unifei.ecot12.trabalho.pessoa.Gandula;
+import br.edu.unifei.ecot12.trabalho.pessoa.Jogador;
 import br.edu.unifei.ecot12.trabalho.pessoa.Juiz;
 import br.edu.unifei.ecot12.trabalho.pessoa.Medico;
 import br.edu.unifei.ecot12.trabalho.pessoa.Narrador;
@@ -45,22 +47,26 @@ public class App {
 		Uniforme u2 = new Uniforme();
 		u1.setCores("Azul e Branco");
 		u2.setCores("Vermelho e Branco");
-
+		
 		System.out.println();
-		System.out.println("#### Times ####");
-		Time t1 = new Time();
-		Time t2 = new Time();
-		t1.setStatus(new Mandante());
-		t1.setNome("Azuriz");
-		t1.setSigla("SCA");
-		t1.setPatrocinadores(null);
+		System.out.println("#### Patrocinador ####");
 
-		t2.setStatus(new Visitante());
-		t2.setNome("Tuntum");
-		t2.setSigla("TFC");
-		t2.setPatrocinadores(null);
-		t2.mudaUniforme();
+		Calendar cal = Calendar.getInstance();
+		Date inicio = cal.getTime();
+		cal.add(Calendar.YEAR, 2); // to get previous year add -1
+		Date fim = cal.getTime();
 
+		Patrocinador p = new Patrocinador();
+		p.setNome("Adidos");
+		p.setValor(2000000.00f);
+		p.setInicioContrato(inicio);
+		p.setFimContrato(fim);
+
+		System.out.println("Nome: " + p.getNome());
+		System.out.println("Valor: " + p.getValor());
+		System.out.println("Inicio do Contrato: " + p.getInicioContrato());
+		System.out.println("Fim do Contrato: " + p.getFimContrato());
+		
 		System.out.println();
 		System.out.println("#### Jogadores Titulares ####");
 
@@ -148,6 +154,42 @@ public class App {
 
 		jr.fazAquecimento(jr.getNome());
 		jr.entraEmCampo(jr.getNome());
+		
+		System.out.println();
+		System.out.println("#### Times ####");
+		Time t1 = new Time();
+		Time t2 = new Time();
+		t1.setStatus(new Mandante());
+		t1.setNome("Azuriz");
+		t1.setSigla("SCA");
+		List<Patrocinador> patro1 = new ArrayList<Patrocinador>();
+		patro1.add(p);
+		t1.setPatrocinadores(patro1);
+		List<Jogador> players1 = new ArrayList<Jogador>();
+		players1.add(jt1);
+		t1.setJogadores(players1); 
+
+		t2.setStatus(new Visitante());
+		t2.setNome("Tuntum");
+		t2.setSigla("TFC");
+		List<Patrocinador> patro2 = new ArrayList<Patrocinador>();
+		patro2.add(p);
+		t2.setPatrocinadores(patro2);
+		List<Jogador> players2 = new ArrayList<Jogador>();
+		players2.add(jt2);
+		t2.setJogadores(players2);
+		t2.mudaUniforme();
+		
+		System.out.println("Nome: " + t1.getNome());
+		System.out.println("Sigla: " + t1.getSigla());
+		System.out.println("Patrocinador: " + t1.getPatrocinadores().toString());
+		System.out.println("Jogadores: " + t1.getJogadores().toString());
+		
+		System.out.println("Nome: " + t2.getNome());
+		System.out.println("Sigla: " + t2.getSigla());
+		System.out.println("Patrocinador: " + t2.getPatrocinadores().toString());
+		System.out.println("Jogadores: " + t2.getJogadores().toString());
+		
 
 		System.out.println();
 		System.out.println("#### TORCEDOR ####");
@@ -160,9 +202,9 @@ public class App {
 
 		System.out.println("Nome: " + tc1.getNome());
 		System.out.println("Idade: " + tc1.getIdade());
-		System.out.println("Ingresso" + tc1.getIngresso());
-		System.out.println("Renda" + tc1.getRenda());
-
+		System.out.println("Ingresso: " + tc1.getIngresso());
+		System.out.println("Renda: " + tc1.getRenda());
+		System.out.println("#### Acoes ####");
 		System.out.print("Torcedor canta ");
 		tc1.cantaHino();
 		System.out.print("Torcedor canta ");
@@ -173,9 +215,9 @@ public class App {
 		tc1.xingaTecnico();
 		System.out.print("Torcedor ");
 		tc1.xingaJogador();
-		System.out.print("Torcedor ");
+		System.out.print("Torcedor grita ");
 		tc1.gritaOle();
-		System.out.println("Torcedor ");
+		System.out.print("Torcedor ");
 		tc1.critica();
 
 		System.out.println();
@@ -186,7 +228,7 @@ public class App {
 		to.setIngresso("Arquibancada setor organizada");
 		to.setNumFaixa(4);
 		to.setEquipamentoMusical("Tambor");
-		// tc1.setUniforme(null);
+		//tc1.setUniforme(null);
 
 		System.out.println("Nome: " + to.getNome());
 		System.out.println("Idade: " + to.getIdade());
@@ -389,31 +431,15 @@ public class App {
 		System.out.println("Qualidade do comentario" + c.getQualidadeComentario());
 		System.out.println("#### Acao ####");
 		c.fazComentario();
-
-		System.out.println();
-		System.out.println("#### Patrocinador ####");
-
-		Calendar cal = Calendar.getInstance();
-		Date inicio = cal.getTime();
-		cal.add(Calendar.YEAR, 2); // to get previous year add -1
-		Date fim = cal.getTime();
-
-		Patrocinador p = new Patrocinador();
-		p.setNome("Adidos");
-		p.setValor(2000000.00f);
-		p.setInicioContrato(inicio);
-		p.setFimContrato(fim);
-
-		System.out.println("Nome: " + p.getNome());
-		System.out.println("Valor: " + p.getValor());
-		System.out.println("Inicio do Contrato: " + p.getInicioContrato());
-		System.out.println("Fim do Contrato: " + p.getFimContrato());
-
+		
+		// #### Partida ####
 		Partida partida = new Partida();
 		partida.setTipoPartida("Copa Da Terra Media");
 		partida.setMandante(t1);
-		partida.setVisitante(t2);
+		partida.setVisitante(t2);	
 
+		System.out.println();
+		System.out.println("#### Estadio ####");
 		Estadio estadio = new Estadio();
 		estadio.setArea(10000.00f);
 		estadio.setCapacidade(50000);
@@ -421,9 +447,7 @@ public class App {
 
 		estadio.setPartida(partida);
 		partida.setEstadio(estadio);
-
-		System.out.println();
-		System.out.println("#### Estadio ####");
+		
 		System.out.println("Area: " + estadio.getArea());
 		System.out.println("Capacidade: " + estadio.getCapacidade());
 		System.out.println("Ocupacao: " + (estadio.getOcupacao() * 100) / estadio.getCapacidade() + "%");
@@ -431,9 +455,9 @@ public class App {
 		System.out.println();
 		System.out.println("#### Partida ####");
 		System.out.println("Tipo da Partida: " + partida.getTipoPartida());
-		System.out.println("Mandante: " + partida.getMandante());
-		System.out.println("Visitante: " + partida.getVisitante()); // perguntar na segunda do pq esta indo a
-																	// localizacao
+		System.out.println("Mandante: " + partida.getMandante().toString());
+		System.out.println("Visitante: " + partida.getVisitante().toString());
+																	
 
 		System.out.println();
 		System.out.println("#### Placa de Publicidade ####");
@@ -500,6 +524,7 @@ public class App {
 		String[] produto = { "Pastel", "Coxinha", "Enroladinho", "Crepes" };
 		float[] preco = { 2, 5, 5, 10 };
 		List<Vendedor> ven = new ArrayList<Vendedor>();
+		ven.add(v);
 		cantina.setProduto(produto);
 		cantina.setPreco(preco);
 		cantina.setVendedor(ven);
@@ -508,9 +533,9 @@ public class App {
 		System.out.println("Numero de Pessoas: " + cantina.getNumPessoa());
 		System.out.println("Numero de lixeiras: " + cantina.getNumLixeira());
 		System.out.println("Numero de atendentes: " + cantina.getNumAtendente());
-		System.out.println("Lista de produtos: " + cantina.getProduto());// perguntar
-		System.out.println("Lista dos precos: " + cantina.getPreco());// perguntar
-		System.out.println("Lista dos vendedores: " + cantina.getVendedor());// porguntar
+		System.out.println("Lista de produtos: " + Arrays.toString(produto));
+		System.out.println("Lista dos precos: " + Arrays.toString(preco));
+		System.out.println("Lista dos vendedores: " + cantina.getVendedor().toString());// porguntar
 
 		System.out.println();
 		System.out.println("#### Arquibancada ####");
@@ -571,7 +596,8 @@ public class App {
 		enfermaria.setNumCama(10);
 		enfermaria.setNumSoro(10);
 		List<Medico> med = new ArrayList<Medico>();
-		enfermaria.setMedico(med);// apresenta erro
+		med.add(m);
+		enfermaria.setMedico(med);
 
 		System.out.println("Area: " + enfermaria.getArea());
 		System.out.println("Numero de Pessoas: " + enfermaria.getNumPessoa());
@@ -580,7 +606,7 @@ public class App {
 		System.out.println("Numero de cadeiras: " + enfermaria.getNumCadeira());
 		System.out.println("Numero de camas: " + enfermaria.getNumCama());
 		System.out.println("Lista dos medicos: " + enfermaria.getMedico());
-
+		
 		System.out.println();
 		System.out.println("#### Campo ####");
 		Campo campo = new Campo();
@@ -588,15 +614,17 @@ public class App {
 		campo.setNumPessoa(30);
 		campo.setNumLixeira(4);
 		campo.setAspersor(20);
-		List<PlacaPublicidade> placab = new ArrayList<PlacaPublicidade>();
+		List<PlacaPublicidade> placab = new ArrayList<PlacaPublicidade>();		
+		placab.add(pb);
 		List<Gandula> gandula = new ArrayList<Gandula>();
-		campo.setPlacas(placab);// apresenta erro
-		campo.setGandulas(gandula);// apresenta erro
+		gandula.add(g);
+		campo.setPlacas(placab);
+		campo.setGandulas(gandula);
 		System.out.println("Area: " + campo.getArea());
 		System.out.println("Numero de Pessoas: " + campo.getNumPessoa());
 		System.out.println("Numero de lixeiras: " + campo.getNumLixeira());
 		System.out.println("Numero de aspersores: " + campo.getAspersor());
-		System.out.println("Listas das placas de publicidade: " + campo.getPlacas());
-		System.out.println("Lista dos gandulas: " + campo.getGandulas());
+		System.out.println("Listas das placas de publicidade: " + placab.toString());
+		System.out.println("Lista dos gandulas: " + campo.getGandulas().toString());
 	}
 }

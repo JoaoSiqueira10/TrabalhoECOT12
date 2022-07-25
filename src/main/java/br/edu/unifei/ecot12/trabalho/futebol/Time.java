@@ -3,6 +3,8 @@ package br.edu.unifei.ecot12.trabalho.futebol;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.unifei.ecot12.trabalho.pessoa.Jogador;
+
 public class Time {
 
 	private String nome;
@@ -10,7 +12,13 @@ public class Time {
 	private Cor cor;
 	private Status status = new Mandante();
 	
+	private List<Jogador> jogadores = new ArrayList<Jogador>();
 	private List<Patrocinador> patrocinadores = new ArrayList<Patrocinador>();
+	
+	@Override
+	public String toString() {
+		return nome;
+	}
 
 	public Time() {
 		// TODO Auto-generated constructor stub
@@ -58,6 +66,14 @@ public class Time {
 	
 	public void mudaUniforme() {
 		status.inverter(null);
+	}
+
+	public List<Jogador> getJogadores() {
+		return jogadores;
+	}
+
+	public void setJogadores(List<Jogador> jogadores) {
+		this.jogadores = jogadores;
 	}
 
 }

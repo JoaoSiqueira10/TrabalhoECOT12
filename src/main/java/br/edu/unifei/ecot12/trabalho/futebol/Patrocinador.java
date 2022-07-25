@@ -8,6 +8,10 @@ public class Patrocinador {
 	private float valor;
 	private Date inicioContrato;
 	private Date fimContrato;
+	
+	public String toString() {
+		return nome;
+	}
 
 	public String getNome() {
 		return nome;
