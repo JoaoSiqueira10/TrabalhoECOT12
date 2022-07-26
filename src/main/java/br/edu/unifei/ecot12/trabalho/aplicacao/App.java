@@ -11,6 +11,7 @@ import br.edu.unifei.ecot12.trabalho.futebol.Mandante;
 import br.edu.unifei.ecot12.trabalho.futebol.Partida;
 import br.edu.unifei.ecot12.trabalho.futebol.Patrocinador;
 import br.edu.unifei.ecot12.trabalho.futebol.PlacaPublicidade;
+import br.edu.unifei.ecot12.trabalho.futebol.Relogio;
 import br.edu.unifei.ecot12.trabalho.futebol.Time;
 import br.edu.unifei.ecot12.trabalho.futebol.Uniforme;
 import br.edu.unifei.ecot12.trabalho.futebol.Visitante;
@@ -432,6 +433,9 @@ public class App {
 		System.out.println("#### Acao ####");
 		c.fazComentario();
 		
+		Relogio relogio1 = Relogio.getRelogio();
+		Relogio relogio2 = Relogio.getRelogio();
+		
 		// #### Partida ####
 		Partida partida = new Partida();
 		partida.setTipoPartida("Copa Da Terra Media");
@@ -444,9 +448,12 @@ public class App {
 		estadio.setArea(10000.00f);
 		estadio.setCapacidade(50000);
 		estadio.setOcupacao(40000);
-
-		estadio.setPartida(partida);
-		partida.setEstadio(estadio);
+		
+		Calendar calenda = Calendar.getInstance();
+		
+		Date ini = calenda.getTime();
+		relogio1.setTempo(ini);
+			
 		
 		System.out.println("Area: " + estadio.getArea());
 		System.out.println("Capacidade: " + estadio.getCapacidade());
@@ -457,7 +464,13 @@ public class App {
 		System.out.println("Tipo da Partida: " + partida.getTipoPartida());
 		System.out.println("Mandante: " + partida.getMandante().toString());
 		System.out.println("Visitante: " + partida.getVisitante().toString());
-																	
+		System.out.println("Inicio da partida: " + relogio1.getTempo());
+		
+		calenda.add(Calendar.HOUR , 3);
+		Date term = calenda.getTime();		
+		relogio2.setTempo(term);
+		
+		System.out.println("Termino da partida: " + relogio2.getTempo());																	
 
 		System.out.println();
 		System.out.println("#### Placa de Publicidade ####");

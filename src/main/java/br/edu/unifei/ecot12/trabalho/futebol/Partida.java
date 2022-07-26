@@ -3,15 +3,16 @@ package br.edu.unifei.ecot12.trabalho.futebol;
 public class Partida {
 
 	private String tipoPartida;
-
 	private Time mandante;
 	private Time visitante;
 	private Estadio estadio;
+	private Relogio inicio;
+	private Relogio termino;
 
 	public Partida() {
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	public String getTipoPartida() {
 		return tipoPartida;
 	}
@@ -44,4 +45,19 @@ public class Partida {
 		this.estadio = estadio;
 	}
 
+	public Relogio getInicio() {
+		return inicio;
+	}
+
+	public void setInicio(Relogio inicio) {
+		this.inicio = inicio;
+	}
+
+	public Relogio getTermino() {
+		return termino;
+	}
+
+	public void setTermino(Relogio termino) {
+		this.termino = termino;
+	}
 }
